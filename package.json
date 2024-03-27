@@ -1,0 +1,24 @@
+{
+  "name": "gh-action-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "yarn node --experimental-vm-modules $(yarn bin jest)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rt-cff/gh-action-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rt-cff/gh-action-demo/issues"
+  },
+  "homepage": "https://github.com/rt-cff/gh-action-demo#readme",
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "jest": "^29.7.0"
+  }
+}
