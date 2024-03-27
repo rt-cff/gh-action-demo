@@ -8,12 +8,26 @@ on:
     branches: [master]
   pull_request:
     branches: [master]
+  workflow_dispatch:
+    inputs:
+      env:
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+        - dev
+        - staging
+        - prod
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
+      - run: |
+          echo "Env: $ENV"
+        env:
+          ENV: ${{ inputs.env }}
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
