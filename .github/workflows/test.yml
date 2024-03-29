@@ -18,6 +18,9 @@ on:
         - dev
         - staging
         - prod
+      environment:
+        required: true
+        type: environment
 
 jobs:
   build:
@@ -26,8 +29,10 @@ jobs:
     steps:
       - run: |
           echo "Env: $ENV"
+          echo "Environment: $ENVIRONMENT"
         env:
           ENV: ${{ inputs.env }}
+          ENVIRONMENT: ${{ inputs.environment }}
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
