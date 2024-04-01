@@ -10,14 +10,6 @@ on:
     branches: [master]
   workflow_dispatch:
     inputs:
-      env:
-        required: true
-        default: 'dev'
-        type: choice
-        options:
-        - dev
-        - staging
-        - prod
       environment:
         required: true
         type: environment
@@ -28,10 +20,8 @@ jobs:
 
     steps:
       - run: |
-          echo "Env: $ENV"
           echo "Environment: $ENVIRONMENT"
         env:
-          ENV: ${{ inputs.env }}
           ENVIRONMENT: ${{ inputs.environment }}
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
